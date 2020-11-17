@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ah.dao.UserDao">
+    <delete id="deleteById">
+    delete from users where id=#{id}
+    </delete>
+    <select id="findAll" resultType="com.ah.pojo.User">
+        select id,name,addr,tel,balance from users
+    </select>
+    <update id="updateById" parameterType="user">
+        update users set name=#{name},tel=#{tel},addr=#{addr} where id=#{id}
+    </update>
+    <insert id="addUser" parameterType="user">
+        insert into users(name,addr,tel) values(#{name},#{addr},#{tel})
+    </insert>
+</mapper>
